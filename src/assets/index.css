@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 容器工具 */
+@layer components {
+  .container-p { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .card { @apply rounded-2xl bg-white ring-1 ring-black/5 shadow-sm dark:bg-neutral-900 dark:ring-white/10; }
+  .btn-primary { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 bg-brand text-white hover:bg-brand-600 transition; }
+}
+
+/* 文章白字精細化（不影響標題與按鈕） */
+@layer base {
+  .dark .prose p,
+  .dark .prose li,
+  .dark .prose blockquote,
+  .dark .prose figcaption,
+  .dark .prose code,
+  .dark .prose kbd,
+  .dark .prose samp,
+  .dark .prose em,
+  .dark .prose strong,
+  .dark .prose a { color: #fff !important; }
+  .dark .prose a:hover { text-decoration: underline; }
+  .dark .prose code { background-color: rgba(255,255,255,0.06); border-radius: .375rem; padding: .1rem .3rem; }
+  .dark .prose blockquote { border-left-color: rgba(255,255,255,0.25) !important; }
+}
+
+/* 全站 a hover 放大（可用 .no-hover-scale 排除） */
+@layer base {
+  a { display: inline-block; transform-origin: center center; transition: transform 120ms ease, color 120ms ease; will-change: transform; }
+  a:hover { transform: scale(1.2); }
+  @media (prefers-reduced-motion: reduce) { a { transition: none; } a:hover { transform:none; } }
+}
+@layer utilities {
+  .no-hover-scale:hover { transform: none !important; }
+}
+
+/* 焦點可視 */
+@layer base {
+  :focus-visible { outline: 2px solid #6366F1; outline-offset: 2px; }
+  .dark :focus-visible { outline-color: #A5B4FC; }
+}
