@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "zip": "node ./scripts/zip.cjs"
+  },
+    "engines": {
+    "node": ">=18"
   },
   "dependencies": {
     "react": "^19.1.1",
